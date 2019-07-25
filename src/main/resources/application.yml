@@ -1,0 +1,37 @@
+spring:
+  profiles:
+    active: local
+
+---
+spring:
+  jpa:
+    hibernate:
+      dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+      show_sql: true
+      hbm2ddl:
+        auto: create-drop
+      naming:
+        physical-strategy: com.grapheople.miner.config.jpa.JpaPhysicalNamingStrategy
+
+
+  datasource:
+    hikari:
+      jdbc-url: jdbc:mysql://localhost:3306/miner?autoReconnect=true&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&useAffectedRows=true&rewriteBatchedStatements=true&useLegacyDatetimeCode=false&useSSL=false&serverTimezone=Asia/Seoul
+      username: ENC(3n4mBQaicTMlQ07nrGa8tqmh2OC8iEH3H9jF1FDdFIiVszZaKJq9wQ==)
+      password: ENC(3n4mBQaicTMlQ07nrGa8tqmh2OC8iEH3H9jF1FDdFIiVszZaKJq9wQ==)
+      driver-class-name: com.mysql.cj.jdbc.Driver
+
+jasypt:
+  encryptor:
+    bean: jasyptStringEncryptor
+
+info: true
+logging:
+  level:
+    root: INFO
+    org.springframework.boot.autoconfigure.logging: INFO
+    org.springframework.web.client: DEBUG
+    org.hibernate: DEBUG
+  pattern:
+    file: "%d{yyyy-MM-dd HH:mm:ss.SSS} %5p - %logger{39} : %m%n"
+    console: "%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(%5p) %clr(-){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n%wEx"
