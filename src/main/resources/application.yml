@@ -3,6 +3,10 @@ spring:
     active: local
 
 ---
+shopping:
+  domain: ENC(frajaqGOttyLqVRg4KiXXVw3yYNRbbs+E4HyvzxolXsL5gOpcNW66mvS3TvxUm4+ynTl7znDXnZGaODbhbZWTqsqIoeDgiS0)
+
+
 spring:
   jpa:
     hibernate:
