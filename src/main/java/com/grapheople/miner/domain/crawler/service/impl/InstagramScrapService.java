@@ -1,7 +1,7 @@
-package com.grapheople.miner.domain.crawler.service;
+package com.grapheople.miner.domain.crawler.service.impl;
 
 import com.google.common.base.Strings;
-import lombok.RequiredArgsConstructor;
+import com.grapheople.miner.domain.crawler.service.api.ScrapService;
 import lombok.extern.slf4j.Slf4j;
 import org.assertj.core.util.Lists;
 import org.assertj.core.util.Sets;
@@ -24,7 +24,7 @@ import java.util.Set;
 
 @Service
 @Slf4j
-public class InstagramScrapService {
+public class InstagramScrapService implements ScrapService {
     private static final String PROJECT_DIR = System.getProperty("user.dir");
     private static final String DRIVER_DIR = PROJECT_DIR + "/drivers/geckodriver";
     private static final String INSTAGRAM_DOMAIN = "https://www.instagram.com/";
@@ -153,6 +153,7 @@ public class InstagramScrapService {
         }
     }
 
+    @Override
     public void scrapContents(String userPath) {
         Set<String> imageUrlSet = getImageUrlSet(userPath);
         imageUrlSet.forEach(imageLink -> {
