@@ -118,7 +118,7 @@ public class InstagramScrapService implements ScrapService {
             Set<String> processedPage = Sets.newHashSet();
             Set<String> imageLinkSet = Sets.newHashSet();
 
-            while (articleCount > imageLinkSet.size()+160) {
+            while (articleCount > imageLinkSet.size()) {
                 List<WebElement> aTagList = getAnchorTagElement(rootDriver);
                 aTagList.stream()
                         .map(a -> a.getAttribute("href"))
