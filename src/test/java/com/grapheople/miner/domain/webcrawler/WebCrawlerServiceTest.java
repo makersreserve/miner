@@ -26,20 +26,10 @@ import java.util.UUID;
 
 @SpringBootTest
 public class WebCrawlerServiceTest {
-    @Test
-    public void current() {
-        System.setProperty("webdriver.gecko.driver", "/grapheople/workspace/miner/drivers/geckodriver");
-        WebDriver rootDriver = new FirefoxDriver(); // 브라우저 실행
-        rootDriver.get("https://www.instagram.com/p/BzCY6ynn_yj/");
-        System.out.println(rootDriver.findElements(By.xpath(".//li[contains(@class, '_-1_m6')]")).size());
-
-        System.out.println(rootDriver.findElements(By.xpath(".//button[contains(@class, '_6CZji')]")).size());
-        System.out.println(rootDriver.findElement(By.xpath(".//img[contains(@class, 'FFVAD')]")).getAttribute("src"));
-    }
 
     @Test
     public void test() {
-        System.setProperty("webdriver.gecko.driver", "/grapheople/workspace/miner/drivers/geckodriver");
+        System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir") + "/drivers/geckodriver");
         WebDriver rootDriver = new FirefoxDriver();
         try {
             rootDriver.get("https://www.instagram.com/seongin_jee/"); // 로그인 페이지로 이동 합니다.
